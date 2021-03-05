@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package datos;
-import dominio.Siu;
+import dominio.Alumno;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,19 +12,23 @@ import java.util.List;
  *
  * @author RITA Sipaque
  */
-public class SIUDAO {
-    private static final String SQL_SELECT = "SELECT carnet_alumno, nombre_alumno, direccion_alumno, telefono_alumno, email_alumno, estatus_alumno FROM alumnos";
-    private static final String SQL_INSERT = "INSERT INTO alumnos(carnet_alumno,nombre_alumno, direccion_alumno, telefono_alumno, email_alumno, estatus_alumno) VALUES(?, ?, ?, ?, ?, ?)";
+public class ALUMNODAO {
+    private static final String SQL_SELECT = "SELECT carnet_alumno , nombre_alumno , direccion_alumno , telefono_alumno , email_alumno , estatus_alumno FROM alumnos";
+    private static final String SQL_INSERT = "INSERT INTO alumnos( nombre_alumno, direccion_alumno, telefono_alumno, email_alumno, estatus_alumno) VALUES(?, ?, ?, ?, ?)";
     private static final String SQL_UPDATE = "UPDATE alumnos SET  nombre_alumno=?, direccion_alumno=?, telefono_alumno=?, email_alumno=?, estatus_alumnos=? WHERE carnet_alumno = ?";
     private static final String SQL_DELETE = "DELETE FROM alumnos WHERE carnet_alumno=?";
     private static final String SQL_QUERY = "SELECT carnet_alumno, nombre_alumno, direccion_alumno, telefono_alumno, email_alumno , estatus_alumno FROM alumnos WHERE carnet_alumno = ?";
 
-   public List<Siu> select(){
+    
+  
+    
+    
+   public List<Alumno> select(){
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        Siu persona = null;
-        List<Siu> personas = new ArrayList<Siu>();
+        Alumno persona = null;
+        List<Alumno> personas = new ArrayList<Alumno>();
         
         try {
             conn = Conexion.getConnection();
@@ -38,7 +42,7 @@ public class SIUDAO {
                 String email_alumno = rs.getString("email_alumno");
                 String estatus_alumno = rs.getString("estatus_alumno");
                 
-                persona = new Siu();
+                persona = new Alumno();
                 persona.setCarnet_alumno(carnet_alumno);
                 persona.setNombre_alumno(nombre_alumno);
                 persona.setDireccion_alumno(direccion_alumno);
@@ -60,7 +64,7 @@ public class SIUDAO {
         return personas;
     }
     
-    public int insert(Siu persona){
+    public int insert(Alumno persona){
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -86,7 +90,7 @@ public class SIUDAO {
         return rows;
     }
     
-    public int update(Siu persona){
+    public int update(Alumno persona){
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -115,7 +119,7 @@ public class SIUDAO {
         return rows;
     }
     
-    public int delete(Siu persona){
+    public int delete(Alumno persona){
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -138,11 +142,11 @@ public class SIUDAO {
         return rows;
     }
      //    public List<Persona> query(Persona persona) { // Si se utiliza un ArrayList
-    public Siu query(Siu persona) {    
+    public Alumno query(Alumno persona) {    
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<Siu> personas = new ArrayList<Siu>();
+        List<Alumno> personas = new ArrayList<Alumno>();
         int rows = 0;
 
         try {
@@ -159,7 +163,7 @@ public class SIUDAO {
                 String email_alumno = rs.getString("email_alumno");
                 String estatus_alumno = rs.getString("estatus_alumno");
                 
-                persona = new Siu();
+                persona = new Alumno();
                 persona.setCarnet_alumno(carnet_alumno);
                 persona.setNombre_alumno(nombre_alumno);
                 persona.setDireccion_alumno(direccion_alumno);

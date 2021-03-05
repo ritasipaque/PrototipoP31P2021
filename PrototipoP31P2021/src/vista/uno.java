@@ -6,8 +6,8 @@
 package vista;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
-import datos.SIUDAO;
-import dominio.Siu;
+import datos.ALUMNODAO;
+import dominio.Alumno;
 
 /**
  *
@@ -67,7 +67,7 @@ public void limpiar() {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setText("Mantenimiento de Persona ");
+        jLabel2.setText("Mantenimiento de Alumnos");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Carnet:");
@@ -214,8 +214,8 @@ public void limpiar() {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
-        Siu BuscarPersona = new Siu();
-        SIUDAO personaDAO = new SIUDAO();
+        Alumno BuscarPersona = new Alumno();
+        ALUMNODAO personaDAO = new ALUMNODAO();
         BuscarPersona.setCarnet_alumno(Integer.parseInt(txtCarnet.getText()));
         BuscarPersona = personaDAO.query(BuscarPersona);
 
@@ -228,8 +228,8 @@ public void limpiar() {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
 
-        Siu aplicacionModificar = new Siu();
-        SIUDAO personaDAO = new SIUDAO();
+        Alumno aplicacionModificar = new Alumno();
+        ALUMNODAO personaDAO = new ALUMNODAO();
 
         aplicacionModificar.setCarnet_alumno(Integer.parseInt(txtCarnet.getText()));
         aplicacionModificar.setNombre_alumno(txtNombre.getText());
@@ -244,8 +244,8 @@ public void limpiar() {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
-        Siu aplicacionEliminar = new Siu();
-        SIUDAO personaDAO = new SIUDAO();
+        Alumno aplicacionEliminar = new Alumno();
+        ALUMNODAO personaDAO = new ALUMNODAO();
 
         aplicacionEliminar.setCarnet_alumno(Integer.parseInt(txtCarnet.getText()));
         personaDAO.delete(aplicacionEliminar);
@@ -255,8 +255,8 @@ public void limpiar() {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
-        Siu aplicacionInsertar = new Siu();
-        SIUDAO personaDAO = new SIUDAO();
+        Alumno aplicacionInsertar = new Alumno();
+        ALUMNODAO personaDAO = new ALUMNODAO();
 
         if (txtCarnet.getText().length() != 0 &&  txtNombre.getText().length() != 0 && txtDireccion.getText().length() != 0
             && txtTelefono.getText().length() != 0 && txtEmail.getText().length() != 0 && txtEstatus.getText().length() != 0 ){
