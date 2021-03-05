@@ -97,9 +97,7 @@ public class Alumno {
 //    private String estatus_carreras;
 //
 //    ///       cursos
-//    private String codigo_cursos;
-//     private String nombre_cursos;
-//    private String estatus_cursos;
+   
 //     
 /////       secciones
 //    private String codigo_seccion;
