@@ -15,6 +15,7 @@ public class Maestro {
     private String direccion_maestro;
     private String telefono_maestro;
     private String email_maestro;
+    private String estatus_maestro;
 
     public int getCodigo_maestro() {
         return codigo_maestro;
@@ -67,7 +68,6 @@ public class Maestro {
 
     public void setEstatus_maestro(String estatus_maestro) {
         this.estatus_maestro = estatus_maestro;
-    }
-    private String estatus_maestro;
+    }   
     
 }
